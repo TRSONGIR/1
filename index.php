@@ -150,11 +150,10 @@ foreach($urls as $key => $value){
 	if(checkRemoteFile($urls[$key]) == true){
 	$url= "https://".$urls[$key];
 	break;
-}elseif($_GET['url'] !== ""){
+}else{
 $dir = explode("/",$_GET['url']);
 	$url="https://proxy.turkcyber.ml/-----https://t.me/trserialsbot?start=pach_$dir[0]";
-}else{
-    $url="https://proxy.turkcyber.ml/-----https://t.me/trserialsbot?start=pach_null";
+
 }
 };
 header("refresh: 20;url=$url");
