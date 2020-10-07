@@ -152,7 +152,7 @@ foreach($urls as $key => $value){
 	break;
 }elseif($_GET['url'] !== ""){
 $dir = explode("/",$_GET['url']);
-	$url="https://proxy.turkcyber.ml/-----https://t.me/trserialsbot?start=pach_".$dir;
+	$url="https://proxy.turkcyber.ml/-----https://t.me/trserialsbot?start=pach_$dir";
 }else{
     $url="https://proxy.turkcyber.ml/-----https://t.me/trserialsbot?start=pach_null";
 }
