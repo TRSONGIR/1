@@ -106,8 +106,16 @@
     },1000);
 </script>
 <?php
-$api ="https://inspired-kinds.000webhostapp.com/TSETAPI/RSET/resave.php?shortenid=".$_GET['url'];
-$resave = file_get_contents($api);
+    function runquery($query){
+    $con = "https://papyraceous-cities.000webhostapp.com/runquery.php?apikey=HjR4cF8&query=";
+    $a = explode(" ",$query);
+    $b = implode("|", $a);
+    $run = $con.$b;
+    return json_decode(file_get_contents($run),true);
+}
+
+$select = runquery("SELECT * FROM `urls` WHERE shortenid='$_GET['url']'");
+$resave = $select['longurl'];
 if($resave !== "ندارم😢"){
     header("refresh: 20;url=$resave");
 }else{
