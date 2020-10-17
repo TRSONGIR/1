@@ -118,14 +118,6 @@ counter--;
 }
 },1000);
   </script>
-  <?php
-$shid = $_GET['url'];
-$rows = json_decode(file_get_contents("https://papyraceous-cities.000webhostapp.com/runquery.php?apikey=HjR4cF8&query=SELECT|*|FROM|`urls`|WHERE|longurl='$shid'",true));
-$longurl = $rows['longurl'];
-if($longurl !== "ندارم😢"){
-	header("Location: $longurl");
-}else{
-	header("Location:https://proxy.turkcyber.ml/-----https://t.me/trserials");
-}?>
+
 </body>
 </html>
