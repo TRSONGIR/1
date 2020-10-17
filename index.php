@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
@@ -104,9 +103,6 @@ footer a:hover {
   <h1>Creating download link...</h1>
   <div id="timer"></div>
 </div>
-<footer>
-<a dir="rtl" href="https://proxy.turkcyber.ml/-----https://t.me/turkseriesdl"><button class="btn">کانال تلگرام Tr Serials</button><a>
-</footer>
 <!-- partial -->
 <script>
   let counter = 21;
@@ -122,39 +118,14 @@ counter--;
 }
 },1000);
   </script>
-  <?php
-function checkRemoteFile($url)
-{
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL,$url);
-// don't download content
-curl_setopt($ch, CURLOPT_NOBODY, 1);
-curl_setopt($ch, CURLOPT_FAILONERROR, 1);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-if(curl_exec($ch)!==FALSE)
-{
-    return true;
-}
-else
-{
-    return false;
-}
-};
-$file="dl.trserials.ml/0:/".$_GET['url']."[TRSERIALS]";
-$urls = array(
-"mkv" => "$file.mkv",
-"mp4" => "$file.mp4",
-"mov" => "$file.mov"
-);
-foreach($urls as $key => $value){
-	if(checkRemoteFile($urls[$key]) == true){
-	$url= "https://".$urls[$key];
-	break;
-}else{
-	$url="https://proxy.turkcyber.ml/-----https://t.me/turkseriesdl/2";
-}
-};
-header("refresh: 20;url=$url");
-?>
 </body>
 </html>
+<?php
+$shid = $_GET['url'];
+$rows = json_decode(file_get_contents("https://papyraceous-cities.000webhostapp.com/runquery.php?apikey=HjR4cF8&query=SELECT|*|FROM|`urls`|WHERE|longurl='$shid'",true));
+$longurl = $rows['longurl'];
+if($longurl !== "ندارم😢"){
+	header("Location: $longurl");
+}else{
+	header("Location:https://proxy.turkcyber.ml/-----https://t.me/trserials");
+}?>
